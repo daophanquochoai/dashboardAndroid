@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ProgressBar
+            android:id="@+id/proccesBar"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:indeterminate="true"
+            android:indeterminateTintMode="src_atop"
+            android:indeterminateTint="@color/btn_color"
+    />
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/proccesBar"
+              app:layout_constraintLeft_toLeftOf="parent"
+              app:layout_constraintRight_toRightOf="parent"
+              app:layout_constraintHorizontal_bias="0.498" app:layout_constraintVertical_bias="0.031"
+              android:text="Đang xử lý.."
+              android:textColor="@color/btn_color"
+              android:textSize="18sp"
+    />
+</androidx.constraintlayout.widget.ConstraintLayout>

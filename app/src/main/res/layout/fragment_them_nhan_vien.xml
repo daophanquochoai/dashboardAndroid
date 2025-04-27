@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+             tools:context=".Fragment.ThemNhanVienFragment">
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content"
+                >
+        <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="8dp"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="15dp"
+        >
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="15dp"
+            >
+                <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Thêm nhn vien"
+                        android:fontFamily="sans-serif-medium"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/btn_color"
+                        android:layout_marginBottom="15dp"
+                        android:gravity="center"
+                />
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Họ và Tên"
+                        android:fontFamily="sans-serif-medium"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/main_color"
+                />
+                <EditText
+                        android:inputType="textPersonName"
+                        android:id="@+id/edt_name"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:hint="Nhập họ và tên"
+                        android:textSize="15dp"
+                        android:background="@drawable/bg_form"
+                />
+                <TextView
+                        android:id="@+id/txt_error_name"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="* loi"
+                        android:visibility="gone"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_error"
+                />
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Địa chỉ email"
+                        android:inputType="textEmailAddress"
+                        android:fontFamily="sans-serif-medium"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/main_color"
+                />
+                <EditText
+                        android:id="@+id/edt_email"
+                        android:hint="Nhập địa chỉ email"
+                        android:textSize="15dp"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:background="@drawable/bg_form"
+                />
+                <TextView
+                        android:id="@+id/txt_error_email"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="* loi"
+                        android:visibility="gone"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_error"
+                />
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tài khoản"
+                        android:fontFamily="sans-serif-medium"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/main_color"
+                />
+                <EditText
+                        android:id="@+id/edt_username"
+                        android:hint="Nhập tài khoản"
+                        android:textSize="15dp"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:background="@drawable/bg_form"
+                />
+                <TextView
+                        android:id="@+id/txt_error_username"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="* loi"
+                        android:textStyle="bold"
+                        android:visibility="gone"
+                        android:textColor="@color/text_error"
+                />
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mật khẩu"
+                        android:fontFamily="sans-serif-medium"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/main_color"
+                />
+                <EditText
+                        android:id="@+id/edt_password"
+                        android:hint="Nhập mật khẩu"
+                        android:textSize="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_form"
+                />
+                <TextView
+                        android:id="@+id/txt_error_pass"
+                        android:inputType="textPassword"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="* loi"
+                        android:visibility="gone"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_error"
+                />
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Xác nhận mật khẩu"
+                        android:fontFamily="sans-serif-medium"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/main_color"
+                />
+                <EditText
+                        android:id="@+id/edt_repass"
+                        android:hint="Nhập lại mật khẩu"
+                        android:textSize="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_form"
+                />
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Căn cước công dân"
+                        android:fontFamily="sans-serif-medium"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/main_color"
+                />
+                <EditText
+                        android:id="@+id/edt_cccd"
+                        android:hint="Nhập căn cước công dân"
+                        android:textSize="15dp"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:background="@drawable/bg_form"
+                />
+                <TextView
+                        android:id="@+id/txt_error_cccd"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="* loi"
+                        android:visibility="gone"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_error"
+                />
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal"
+                >
+                    <Button
+                            android:id="@+id/btn_cancel"
+                            android:layout_width="120dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="start"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/main_color"
+                            android:textColor="@color/white"
+                            android:text="Hủy"
+
+                    />
+                    <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                    <Button
+                            android:id="@+id/btn_save"
+                            android:layout_width="120dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="end"
+                            android:layout_marginLeft="10dp"
+                            android:background="@color/btn_color"
+                            android:textColor="@color/white"
+                            android:text="Tạo"
+                    />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </ScrollView>
+
+</FrameLayout>

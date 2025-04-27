@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Dashboard" parent="Theme.AppCompat.Light.NoActionBar">
+         <item name="colorPrimary">@color/white</item>
+    </style>
+    <style name="CustomDialogTheme" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
+        <item name="colorSurface">@color/white</item> <!-- Nền trắng cho dialog -->
+        <item name="colorOnSurface">@color/black</item> <!-- Text đen cho dễ đọc -->
+    </style>
+    <style name="Theme.Dashboard" parent="Base.Theme.Dashboard"/>
+</resources>

@@ -1,0 +1,37 @@
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_margin="8dp"
+        android:elevation="4dp"
+        app:cardCornerRadius="15dp"
+>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+        <!-- Text bên trái chiếm hết phần còn lại -->
+        <TextView
+                android:id="@+id/txt_film"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Tên phim"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@android:color/black" />
+
+        <!-- Text bên phải -->
+        <TextView
+                android:id="@+id/txt_revenue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100 tỷ"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@android:color/holo_red_dark" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

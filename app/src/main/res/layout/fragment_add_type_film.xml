@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+             tools:context=".Fragment.AddTypeFilmFragment">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+    >
+        <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="8dp"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="10dp"
+        >
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:orientation="vertical"
+            >
+                <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Thêm nhn vien"
+                        android:fontFamily="sans-serif-medium"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/btn_color"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
+                />
+                <TextView
+                        android:id="@+id/tvId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ID"
+                        android:fontFamily="sans-serif-medium"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/main_color"
+                />
+                <EditText
+                        android:inputType="textPersonName"
+                        android:id="@+id/edt_id"
+                        android:layout_width="match_parent" android:layout_height="40dp"
+                        android:hint=""
+                        android:textSize="15dp"
+                        android:background="@drawable/bg_form"
+                />
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Loại phim"
+                        android:fontFamily="sans-serif-medium"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/main_color"
+                        android:layout_marginTop="15dp"
+                />
+                <EditText
+                        android:inputType="textPersonName"
+                        android:id="@+id/edt_type_film"
+                        android:layout_width="match_parent" android:layout_height="40dp"
+                        android:hint="Nhập loại phim"
+                        android:textSize="15dp"
+                        android:background="@drawable/bg_form"
+                />
+                <TextView
+                        android:id="@+id/txt_error_name"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="* loi"
+                        android:visibility="gone"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_error"
+                />
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Trạng thái"
+                        android:fontFamily="sans-serif-medium"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/main_color"
+                        android:layout_marginTop="15dp"
+                />
+                <Spinner
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_form"
+                        android:id="@+id/spinner_type_film"
+                        android:spinnerMode="dropdown"
+                        android:layout_gravity="end"
+                        android:layout_marginRight="10dp"
+                />
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal"
+                >
+                    <Button
+                            android:id="@+id/btn_cancel"
+                            android:layout_width="120dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="start"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/main_color"
+                            android:textColor="@color/white"
+                            android:text="Hủy"
+
+                    />
+                    <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                    <Button
+                            android:id="@+id/btn_save"
+                            android:layout_width="120dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="end"
+                            android:layout_marginLeft="10dp"
+                            android:background="@color/btn_color"
+                            android:textColor="@color/white"
+                            android:text="Tạo"
+                    />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </ScrollView>
+
+
+</FrameLayout>
