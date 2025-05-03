@@ -123,7 +123,7 @@ public class AddTypeFilmFragment extends Fragment {
                     tvErrorName.setVisibility(View.VISIBLE);
                     tvErrorName.setText("Loại phim không thể trống");
                 }else{
-                    FilmService.apiService.addFilm("Bearer " + token, typeFilm).enqueue(new Callback<Response>() {
+                    FilmService.apiService.addTypeFilm("Bearer " + token, typeFilm).enqueue(new Callback<Response>() {
                         @Override
                         public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
                             if( response.isSuccessful()){
@@ -176,7 +176,7 @@ public class AddTypeFilmFragment extends Fragment {
                     tvErrorName.setVisibility(View.VISIBLE);
                     tvErrorName.setText("Loại phim không thể trống");
                 }else{
-                    FilmService.apiService.updateFilm("Bearer " + token,edtId.getText().toString(), typeFilm).enqueue(new Callback<Response>() {
+                    FilmService.apiService.updateTypeFilm("Bearer " + token,edtId.getText().toString(), typeFilm).enqueue(new Callback<Response>() {
                         @Override
                         public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
                             if( response.isSuccessful()){

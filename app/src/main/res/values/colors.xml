@@ -9,4 +9,11 @@
     <color name="btn_color">#FFCF22</color>
     <color name="txt_green">#00D515</color>
     <color name="txt_red">#D50032</color>
+    <color name="colorPrimary">#FFCF22</color>
+    <color name="colorPrimaryVariant">#D6AC12</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorSecondary">#00D515</color>
+    <color name="colorSecondaryVariant">#00780F</color>
+    <color name="colorOnSecondary">#FFFFFF</color>
+    <color name="colorSurface">#373535</color>
 </resources>

@@ -1,20 +1,24 @@
 package doctorhoai.learn.Model;
 
-public class Film {
+import java.io.Serializable;
+import java.util.List;
+
+public class Film implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String id;
     private String name;
     private Integer age;
     private String image;
-    private Sub sub;
+    private List<Sub> sub;
     private String nation;
     private String duration;
     private String description;
     private String content;
     private String trailer;
-    private TypeFilm typeFilms;
+    private List<TypeFilm> typeFilms;
     private String status;
 
-    public Film(String id, String name, Integer age, String image, Sub sub, String nation, String duration, String description, String content, String trailer, TypeFilm typeFilms, String status) {
+    public Film(String id, String name, Integer age, String image, List<Sub> sub, String nation, String duration, String description, String content, String trailer, List<TypeFilm> typeFilms, String status) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -63,11 +67,11 @@ public class Film {
         this.image = image;
     }
 
-    public Sub getSub() {
+    public List<Sub> getSub() {
         return sub;
     }
 
-    public void setSub(Sub sub) {
+    public void setSub(List<Sub> sub) {
         this.sub = sub;
     }
 
@@ -111,11 +115,11 @@ public class Film {
         this.trailer = trailer;
     }
 
-    public TypeFilm getTypeFilms() {
+    public List<TypeFilm> getTypeFilms() {
         return typeFilms;
     }
 
-    public void setTypeFilms(TypeFilm typeFilms) {
+    public void setTypeFilms(List<TypeFilm> typeFilms) {
         this.typeFilms = typeFilms;
     }
 

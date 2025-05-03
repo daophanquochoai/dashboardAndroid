@@ -1,6 +1,9 @@
 package doctorhoai.learn.Model;
 
-public class Sub {
+import java.io.Serializable;
+
+public class Sub implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String id;
     private String name;
     public Sub(String id, String name) {

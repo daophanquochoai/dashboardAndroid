@@ -2,6 +2,7 @@ package doctorhoai.learn.Api;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import doctorhoai.learn.Model.Film;
 import doctorhoai.learn.Model.Response;
 import doctorhoai.learn.Model.TypeFilm;
 import okhttp3.OkHttpClient;
@@ -39,13 +40,13 @@ public interface FilmService {
     );
 
     @POST("film-service/api/typefilm/add")
-    Call<Response> addFilm(
+    Call<Response> addTypeFilm(
             @Header("Authorization") String token,
             @Body TypeFilm typeFilm
     );
 
     @PUT("film-service/api/typefilm/update/{id}")
-    Call<Response> updateFilm(
+    Call<Response> updateTypeFilm(
             @Header("Authorization") String token,
             @Path("id") String id,
             @Body TypeFilm typeFilm
@@ -59,5 +60,23 @@ public interface FilmService {
             @Query("asc") String asc,
             @Query("status") String status,
             @Query("q") String q
+    );
+    @GET("film-service/api/sub/all")
+    Call<Response> getAllSub();
+
+    @GET("film-service/api/typefilm/get/all")
+    Call<Response> getAllTypeFilm();
+
+    @POST("film-service/api/film/add")
+    Call<Response> addFilm(
+            @Header("Authorization") String token,
+            @Body Film film
+    );
+
+    @PUT("film-service/api/film/update/{id}")
+    Call<Response> updateFilm(
+            @Header("Authorization") String token,
+            @Path("id") String id,
+            @Body Film film
     );
 }
