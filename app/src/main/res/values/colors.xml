@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <color name="background_light">#F5F5F5</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="primary">#6200EE</color>
+    <color name="status_success">#4CAF50</color>
+    <color name="status_deleted">#F44336</color>
+    <color name="status_default">#757575</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="main_color">#434349</color>
@@ -16,4 +24,5 @@
     <color name="colorSecondaryVariant">#00780F</color>
     <color name="colorOnSecondary">#FFFFFF</color>
     <color name="colorSurface">#373535</color>
+
 </resources>

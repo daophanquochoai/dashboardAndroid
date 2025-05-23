@@ -26,6 +26,10 @@
                 android:icon="@drawable/ic_type_film"
                 android:title="Loại phim"
         />
+        <item
+            android:id="@+id/bills"
+            android:icon="@drawable/ic_bill"
+            android:title="Hóa đơn" />
     </group>
 
     <item>
