@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Nút chỉnh sửa và lưu -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="16dp">
+            <Button
+                android:id="@+id/btn_edit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Chỉnh sửa"
+                android:visibility="visible"/>
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Lưu"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <!-- Tiêu đề -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chi tiết hóa đơn"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingBottom="16dp"/>
+
+        <!-- Thông tin cơ bản -->
+        <TextView
+            android:id="@+id/tv_bill_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mã hóa đơn: "
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_total_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tổng tiền: "
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_transaction_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mã giao dịch: "
+            android:paddingBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/edt_payment_method"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phương thức thanh toán"
+            android:enabled="false"
+            android:paddingBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/edt_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Trạng thái"
+            android:enabled="false"
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_timestamp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thời gian: "
+            android:paddingBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/edt_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tên khách hàng"
+            android:enabled="false"
+            android:paddingBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/edt_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:enabled="false"
+            android:paddingBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/edt_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Số điện thoại"
+            android:enabled="false"
+            android:paddingBottom="16dp"/>
+
+        <!-- QR Code -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mã QR:"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"/>
+
+        <ImageView
+            android:id="@+id/iv_qr_code"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:paddingBottom="16dp"/>
+
+        <!-- Thông tin suất chiếu -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thông tin suất chiếu"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_film_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tên phim: "
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_show_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thời gian chiếu: "
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_room"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Phòng: "
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_branch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chi nhánh: "
+            android:paddingBottom="16dp"/>
+
+        <!-- Danh sách ghế -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Danh sách ghế"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_chairs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp"/>
+
+        <!-- Danh sách món ăn -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Danh sách món ăn"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_dishes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</ScrollView>

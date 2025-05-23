@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import android.text.InputType;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -68,6 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                 AccountService.apiService.login(login).enqueue(new Callback<Token>() {
                     @Override
                     public void onResponse(Call<Token> call, Response<Token> response) {
+
                         if( response.isSuccessful() ){
                             loadingDialog.dismissDialog();
                             Token token = response.body();
@@ -87,6 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<Token> call, Throwable throwable) {
                         loadingDialog.dismissDialog();
+                        Log.d("hoai", "onFailure: " + throwable.getMessage());
                         Toast.makeText(LoginActivity.this, "Không thể kết nối đến máy chủ", Toast.LENGTH_SHORT).show();
                     }
                 });

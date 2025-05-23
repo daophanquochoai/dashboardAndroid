@@ -1,45 +1,41 @@
 package doctorhoai.learn.Activity;
 
 import android.os.Bundle;
-
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.graphics.Insets;
 import androidx.core.view.GravityCompat;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 import doctorhoai.learn.Api.AccountService;
-import doctorhoai.learn.Fragment.*;
+import doctorhoai.learn.Fragment.BillFragment;
+import doctorhoai.learn.Fragment.NhanVienFragment;
+import doctorhoai.learn.Fragment.PhimFragment;
+import doctorhoai.learn.Fragment.TongQuanFragment;
+import doctorhoai.learn.Fragment.TypeFilmFragment;
 import doctorhoai.learn.Model.Login;
 import doctorhoai.learn.Model.Token;
 import doctorhoai.learn.Model.User;
 import doctorhoai.learn.R;
 import doctorhoai.learn.Utils.JwtUtils;
 import doctorhoai.learn.Utils.ShareData;
-import org.jetbrains.annotations.NotNull;
-import org.w3c.dom.Text;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    //declare
+    // Declare
     ShareData shareData;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     TextView txt_name, txt_email;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +45,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         initView();
         loadData();
 
-        if( savedInstanceState == null){
+        if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new TongQuanFragment()).commit();
             navigationView.setCheckedItem(R.id.home);
         }
-
     }
 
-    public void initView () {
+    public void initView() {
         shareData = ShareData.getInstance(MainActivity.this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -76,22 +71,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void loadData() {
         JwtUtils jwtUtils = JwtUtils.getInstance();
         User user = shareData.getUser() == null ? jwtUtils.getUser(shareData.getToken()) : shareData.getUser();
-        if( user == null ) finish();
+        if (user == null) finish();
         txt_name.setText(user.getName());
         txt_email.setText(user.getEmail());
     }
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem menuItem) {
-        if( menuItem.getItemId() == R.id.home){
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        if (menuItem.getItemId() == R.id.home) {
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new TongQuanFragment()).commit();
-        }else if( menuItem.getItemId() == R.id.employee){
+        } else if (menuItem.getItemId() == R.id.employee) {
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new NhanVienFragment()).commit();
-        }
-        else if( menuItem.getItemId() == R.id.film){
+        } else if (menuItem.getItemId() == R.id.film) {
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new PhimFragment()).commit();
-        }else if( menuItem.getItemId() == R.id.typefilm){
+        } else if (menuItem.getItemId() == R.id.typefilm) {
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new TypeFilmFragment()).commit();
+       } else if (menuItem.getItemId() == R.id.bills) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new BillFragment()).commit();
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
