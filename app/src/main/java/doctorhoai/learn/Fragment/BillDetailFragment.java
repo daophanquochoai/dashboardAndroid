@@ -1,4 +1,4 @@
-package doctorhoai.learn;
+package doctorhoai.learn.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,6 +25,7 @@ import doctorhoai.learn.Api.BillService;
 import doctorhoai.learn.Model.Bill;
 import doctorhoai.learn.Model.ErrorResponse;
 import doctorhoai.learn.Model.Response;
+import doctorhoai.learn.R;
 import doctorhoai.learn.Utils.ShareData;
 import com.bumptech.glide.Glide;
 import retrofit2.Call;

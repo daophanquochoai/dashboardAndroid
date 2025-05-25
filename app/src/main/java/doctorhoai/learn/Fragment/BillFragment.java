@@ -18,7 +18,7 @@ import com.google.gson.internal.LinkedTreeMap;
 import doctorhoai.learn.Activity.LoadingDialog;
 import doctorhoai.learn.Activity.LoginActivity;
 import doctorhoai.learn.Api.BillService;
-import doctorhoai.learn.BillDetailFragment;
+import doctorhoai.learn.Fragment.BillDetailFragment;
 import doctorhoai.learn.Model.Bill;
 import doctorhoai.learn.Model.ErrorResponse;
 import doctorhoai.learn.Model.BillParam;
