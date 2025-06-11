@@ -30,6 +30,11 @@
             android:id="@+id/bills"
             android:icon="@drawable/ic_bill"
             android:title="Hóa đơn" />
+        <item
+            android:id="@+id/dishes"
+            android:icon="@drawable/ic_dish"
+            android:title="Món ăn" />
+
     </group>
 
     <item>
