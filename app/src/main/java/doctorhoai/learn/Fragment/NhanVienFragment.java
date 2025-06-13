@@ -297,6 +297,7 @@ public class NhanVienFragment extends Fragment {
     public void fetchEmployee () {
         progressBarTableEmployee.setVisibility(View.VISIBLE);
         imgTable.setVisibility(View.GONE);
+        System.out.println( param.getQ());
         AccountService.apiService.getEmployment( "Bearer " + token, param.getPage(), param.getLimit(), param.getAsc(), param.getStatus(), param.getOrderBy(), param.getQ()).enqueue(new Callback<Response>() {
             @Override
             public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {

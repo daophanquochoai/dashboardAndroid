@@ -57,7 +57,6 @@ public class TongQuanFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_tong_quan, container, false);
 
         initView(view);
-
         initSpinnerYear();
         drawBarChart(year);
         drawPiChart(month, year);
@@ -109,7 +108,7 @@ public class TongQuanFragment extends Fragment {
                 list
         );
         spinnerMonth.setAdapter(adapter);
-        spinnerMonth.setSelection(Integer.valueOf(month));
+        spinnerMonth.setSelection(Integer.valueOf(month) -1);
         token = shareData.getToken();
         recyclerView = view.findViewById(R.id.recyclerView_film_revenue);
         recyclerView.setVisibility(View.GONE);

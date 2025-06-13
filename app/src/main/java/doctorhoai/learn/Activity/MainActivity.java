@@ -1,5 +1,6 @@
 package doctorhoai.learn.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -87,10 +88,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new PhimFragment()).commit();
         } else if (menuItem.getItemId() == R.id.typefilm) {
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new TypeFilmFragment()).commit();
-       } else if (menuItem.getItemId() == R.id.bills) {
+        } else if (menuItem.getItemId() == R.id.bills) {
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new BillFragment()).commit();
+
         } else if (menuItem.getItemId() == R.id.branch){
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new RapFragment()).commit();
+
+        }else if( menuItem.getItemId() == R.id.logout){
+            shareData.clearToken();
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Xóa stack cũ
+            startActivity(intent)
+          main
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
