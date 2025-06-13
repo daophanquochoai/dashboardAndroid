@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.BillFragment">
+    tools:context=".DishManagerFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -24,22 +24,22 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_margin="5dp">
-                    <!--                    <Button-->
-                    <!--                        android:id="@+id/btn_them"-->
-                    <!--                        android:layout_weight="2"-->
-                    <!--                        android:layout_width="0dp"-->
-                    <!--                        android:layout_height="40dp"-->
-                    <!--                        android:text="Tạo"-->
-                    <!--                        android:backgroundTint="@null"-->
-                    <!--                        android:background="@color/txt_green"-->
-                    <!--                        android:textColor="@color/white"-->
-                    <!--                        android:enabled="false"/> &lt;!&ndash; Vô hiệu hóa tạm thời &ndash;&gt;-->
+                    <Button
+                        android:id="@+id/btn_them"
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:text="Thêm món ăn"
+                        android:backgroundTint="@null"
+                        android:background="@color/txt_green"
+                        android:textColor="@color/white"/>
                     <EditText
                         android:id="@+id/edt_search"
                         android:layout_marginLeft="40dp"
                         android:layout_weight="3"
-                        android:layout_width="200dp"
+                        android:layout_width="0dp"
                         android:layout_height="40dp"
+                        android:hint="Tìm kiếm món ăn"
                         android:drawableEnd="@drawable/ic_search"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -85,7 +85,7 @@
                     android:layout_margin="10dp"
                     android:gravity="center">
                     <ProgressBar
-                        android:id="@+id/proccesBar_table_bill"
+                        android:id="@+id/proccesBar_table_dish"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:indeterminate="true"
@@ -99,7 +99,7 @@
                         android:src="@drawable/not_found"
                         android:visibility="gone"/>
                     <TableLayout
-                        android:id="@+id/table_bill"
+                        android:id="@+id/table_dish"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_table_row">
@@ -108,28 +108,21 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/bg_table">
                             <TextView
-                                android:text="ID Hóa đơn"
+                                android:text="ID món ăn"
                                 android:padding="8dp"
                                 android:layout_weight="1"
                                 android:textColor="@color/white"
                                 android:textStyle="bold"
                                 android:gravity="center"/>
                             <TextView
-                                android:text="Tổng tiền"
+                                android:text="Tên món"
                                 android:padding="8dp"
                                 android:layout_weight="1"
                                 android:textColor="@color/white"
                                 android:textStyle="bold"
                                 android:gravity="center"/>
                             <TextView
-                                android:text="Thời gian"
-                                android:padding="8dp"
-                                android:layout_weight="1"
-                                android:textColor="@color/white"
-                                android:textStyle="bold"
-                                android:gravity="center"/>
-                            <TextView
-                                android:text="Khách hàng"
+                                android:text="Giá"
                                 android:padding="8dp"
                                 android:layout_weight="1"
                                 android:textColor="@color/white"
@@ -137,6 +130,14 @@
                                 android:gravity="center"/>
                             <TextView
                                 android:text="Trạng thái"
+                                android:padding="8dp"
+                                android:layout_weight="1"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                android:gravity="center"/>
+                            <TextView
+                                android:text="Hành động"
+                                android:layout_width="0dp"
                                 android:padding="8dp"
                                 android:layout_weight="1"
                                 android:textColor="@color/white"

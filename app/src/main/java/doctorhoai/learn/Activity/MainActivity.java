@@ -15,6 +15,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 import doctorhoai.learn.Api.AccountService;
 import doctorhoai.learn.Fragment.BillFragment;
+import doctorhoai.learn.Fragment.DishManagerFragment;
 import doctorhoai.learn.Fragment.NhanVienFragment;
 import doctorhoai.learn.Fragment.PhimFragment;
 import doctorhoai.learn.Fragment.TongQuanFragment;
@@ -86,8 +87,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new PhimFragment()).commit();
         } else if (menuItem.getItemId() == R.id.typefilm) {
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new TypeFilmFragment()).commit();
-       } else if (menuItem.getItemId() == R.id.bills) {
+        } else if (menuItem.getItemId() == R.id.bills) {
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new BillFragment()).commit();
+        }else if (menuItem.getItemId() == R.id.dishes) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new DishManagerFragment()).commit();
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;

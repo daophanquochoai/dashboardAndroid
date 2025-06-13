@@ -62,7 +62,6 @@ public class TypeFilmFragment extends Fragment {
                 if( param.getPage() + 1< totalPage ){
                     param.setPage(param.getPage() + 1);
                 }
-                    Toast.makeText(getActivity(),String.valueOf( param.getPage()), Toast.LENGTH_SHORT).show();
                 fetchTypeFilm();
             }
         });
