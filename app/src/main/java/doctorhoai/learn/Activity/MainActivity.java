@@ -18,6 +18,7 @@ import doctorhoai.learn.Api.AccountService;
 import doctorhoai.learn.Fragment.BillFragment;
 import doctorhoai.learn.Fragment.NhanVienFragment;
 import doctorhoai.learn.Fragment.PhimFragment;
+import doctorhoai.learn.Fragment.RapFragment;
 import doctorhoai.learn.Fragment.TongQuanFragment;
 import doctorhoai.learn.Fragment.TypeFilmFragment;
 import doctorhoai.learn.Model.Login;
@@ -89,11 +90,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new TypeFilmFragment()).commit();
         } else if (menuItem.getItemId() == R.id.bills) {
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new BillFragment()).commit();
+
+        } else if (menuItem.getItemId() == R.id.branch){
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new RapFragment()).commit();
+
         }else if( menuItem.getItemId() == R.id.logout){
             shareData.clearToken();
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Xóa stack cũ
-            startActivity(intent);
+            startActivity(intent)
+          main
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
