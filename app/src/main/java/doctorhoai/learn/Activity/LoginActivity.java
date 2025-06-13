@@ -20,6 +20,7 @@ import androidx.core.view.WindowInsetsCompat;
 import doctorhoai.learn.Api.AccountService;
 import doctorhoai.learn.Model.Login;
 import doctorhoai.learn.Model.Token;
+import doctorhoai.learn.Model.User;
 import doctorhoai.learn.R;
 import doctorhoai.learn.Utils.JwtUtils;
 import doctorhoai.learn.Utils.ShareData;
@@ -135,8 +136,9 @@ public class LoginActivity extends AppCompatActivity {
     public void checkLogin(){
         shareData = ShareData.getInstance(LoginActivity.this);
         String token = shareData.getToken();
+        User user = shareData.getUser();
         jwtUtils = JwtUtils.getInstance();
-        if( jwtUtils.expireToken(token) ){
+        if( jwtUtils.expireToken(token) || user == null ){
             shareData.clearToken();
         }
         else if( token != null ){

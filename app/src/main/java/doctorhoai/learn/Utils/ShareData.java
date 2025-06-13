@@ -35,6 +35,7 @@ public class ShareData {
 
     public void clearToken() {
         editor.remove("token");
+        editor.remove("user");
         editor.apply();
     }
 

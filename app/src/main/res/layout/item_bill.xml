@@ -1,79 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_border_bottom"
+    android:padding="8dp">
+
+    <!-- ID Hóa đơn -->
+    <TextView
+        android:id="@+id/tv_bill_id"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_border_bottom"
-        android:padding="8dp">
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintWidth_percent="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- ID Hóa đơn -->
-        <TextView
-            android:id="@+id/tv_bill_id"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
-            android:ellipsize="end"
-            android:maxLines="1"
-            app:layout_constraintWidth_percent="0.25"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <!-- Tổng tiền -->
+    <TextView
+        android:id="@+id/tv_bill_total_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintWidth_percent="0.2"
+        app:layout_constraintStart_toEndOf="@id/tv_bill_id"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Tổng tiền -->
-        <TextView
-            android:id="@+id/tv_bill_total_price"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
-            android:ellipsize="end"
-            android:maxLines="1"
-            app:layout_constraintWidth_percent="0.2"
-            app:layout_constraintStart_toEndOf="@id/tv_bill_id"
-            app:layout_constraintTop_toTopOf="parent" />
+    <!-- Thời gian -->
+    <TextView
+        android:id="@+id/tv_bill_timestamp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintWidth_percent="0.25"
+        app:layout_constraintStart_toEndOf="@id/tv_bill_total_price"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Thời gian -->
-        <TextView
-            android:id="@+id/tv_bill_timestamp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
-            android:ellipsize="end"
-            android:maxLines="1"
-            app:layout_constraintWidth_percent="0.25"
-            app:layout_constraintStart_toEndOf="@id/tv_bill_total_price"
-            app:layout_constraintTop_toTopOf="parent" />
+    <!-- Tên khách hàng -->
+    <TextView
+        android:id="@+id/tv_bill_user_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintWidth_percent="0.2"
+        app:layout_constraintStart_toEndOf="@id/tv_bill_timestamp"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Tên khách hàng -->
-        <TextView
-            android:id="@+id/tv_bill_user_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
-            android:ellipsize="end"
-            android:maxLines="1"
-            app:layout_constraintWidth_percent="0.2"
-            app:layout_constraintStart_toEndOf="@id/tv_bill_timestamp"
-            app:layout_constraintTop_toTopOf="parent" />
+    <!-- Trạng thái -->
+    <TextView
+        android:id="@+id/tv_bill_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintWidth_percent="0.1"
+        app:layout_constraintStart_toEndOf="@id/tv_bill_user_name"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Trạng thái -->
-        <TextView
-            android:id="@+id/tv_bill_status"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
-            android:ellipsize="end"
-            android:maxLines="1"
-            app:layout_constraintWidth_percent="0.1"
-            app:layout_constraintStart_toEndOf="@id/tv_bill_user_name"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

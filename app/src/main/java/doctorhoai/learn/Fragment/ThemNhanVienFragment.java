@@ -153,6 +153,7 @@ public class ThemNhanVienFragment extends Fragment {
                     @Override
                     public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
                         if( response.isSuccessful()){
+                            loadingDialog.dismissDialog();
                             Toast.makeText(getActivity(), "Thêm nhân viên thành công", Toast.LENGTH_SHORT).show();
                             Objects.requireNonNull(getActivity()).getSupportFragmentManager().popBackStack();
                         }else{
