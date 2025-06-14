@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DishManagerFragment">
+    tools:context=".DishListFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -135,14 +135,6 @@
                                 android:textColor="@color/white"
                                 android:textStyle="bold"
                                 android:gravity="center"/>
-<!--                            <TextView-->
-<!--                                android:text="Hành động"-->
-<!--                                android:layout_width="0dp"-->
-<!--                                android:padding="8dp"-->
-<!--                                android:layout_weight="1"-->
-<!--                                android:textColor="@color/white"-->
-<!--                                android:textStyle="bold"-->
-<!--                                android:gravity="center"/>-->
                         </TableRow>
                     </TableLayout>
                     <LinearLayout

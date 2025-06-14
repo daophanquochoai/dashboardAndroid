@@ -18,6 +18,7 @@ import doctorhoai.learn.Adapter.DishAdapter;
 import doctorhoai.learn.Model.Bill;
 import doctorhoai.learn.R;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class BillDetailFragment extends Fragment {
@@ -59,7 +60,8 @@ public class BillDetailFragment extends Fragment {
         // Hiển thị dữ liệu
         if (bill != null) {
             tvBillId.setText("Mã hóa đơn: " + (bill.getId() != null ? bill.getId() : "N/A"));
-            tvTotalPrice.setText("Tổng tiền: " + (bill.getTotalPrice() != null ? bill.getTotalPrice() + " VNĐ" : "N/A"));
+            DecimalFormat DecimalFormat = new DecimalFormat("#,###");
+            tvTotalPrice.setText("Tổng tiền: " + (bill.getTotalPrice() != null ? DecimalFormat.format(bill.getTotalPrice()) + " VND" : "N/A"));
             tvTransactionCode.setText("Mã giao dịch: " + (bill.getTransactionCode() != null && !bill.getTransactionCode().isEmpty() ? bill.getTransactionCode() : "Không có"));
             tvPaymentMethod.setText("Phương thức thanh toán: " + (bill.getPaymentMethod() != null ? bill.getPaymentMethod() : "N/A"));
             tvStatus.setText("Trạng thái: " + (bill.getStatus() != null ? bill.getStatus() : "N/A"));

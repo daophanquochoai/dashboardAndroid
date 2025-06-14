@@ -28,11 +28,20 @@
         android:inputType="numberDecimal"
         android:paddingBottom="8dp"/>
 
-    <Spinner
-        android:id="@+id/spinner_type_dish"
+    <TextView
+        android:id="@+id/tv_type_dish"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Loại món ăn"
+        android:padding="8dp"
+        android:background="@android:drawable/edit_text"
+        android:paddingBottom="8dp"/>
+
+    <Spinner
+        android:id="@+id/spinner_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Trạng thái"
         android:spinnerMode="dropdown"
         android:paddingBottom="8dp"/>
 
@@ -43,22 +52,31 @@
         android:hint="URL hình ảnh (tùy chọn)"
         android:paddingBottom="16dp"/>
 
-
     <LinearLayout
+        android:id="@+id/button_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <Button
             android:id="@+id/btn_save"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Lưu"/>
+
         <Button
             android:id="@+id/btn_cancel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Hủy"/>
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Xóa"/>
     </LinearLayout>
 </LinearLayout>
