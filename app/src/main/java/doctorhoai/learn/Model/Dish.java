@@ -9,7 +9,7 @@ public class Dish implements Serializable {
     private Float price;
     private String active;
     private String image;
-    private Object typeDish;
+    private Object typeDishId;
 
     public Dish() {}
 
@@ -28,6 +28,6 @@ public class Dish implements Serializable {
     public String getImage() { return image; }
     public void setImage(String image) { this.image = image; }
 
-    public Object getTypeDish() { return typeDish; }
-    public void setTypeDish(Object typeDish) { this.typeDish = typeDish; }
+    public Object getTypeDish() { return typeDishId; }
+    public void setTypeDish(Object typeDish) { this.typeDishId = typeDish; }
 }

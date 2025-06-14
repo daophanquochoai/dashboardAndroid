@@ -74,7 +74,7 @@ public interface DishService {
             @Path("id") String id
     );
 
-    @GET("dish-service/api/type-dish/all")
+    @GET("dish-service/api/typedish/all")
     Call<Response> getAllTypeDishes(
             @Header("Authorization") String token
     );

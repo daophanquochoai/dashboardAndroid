@@ -135,14 +135,14 @@
                                 android:textColor="@color/white"
                                 android:textStyle="bold"
                                 android:gravity="center"/>
-                            <TextView
-                                android:text="Hành động"
-                                android:layout_width="0dp"
-                                android:padding="8dp"
-                                android:layout_weight="1"
-                                android:textColor="@color/white"
-                                android:textStyle="bold"
-                                android:gravity="center"/>
+<!--                            <TextView-->
+<!--                                android:text="Hành động"-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:padding="8dp"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:textColor="@color/white"-->
+<!--                                android:textStyle="bold"-->
+<!--                                android:gravity="center"/>-->
                         </TableRow>
                     </TableLayout>
                     <LinearLayout

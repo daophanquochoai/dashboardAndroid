@@ -219,7 +219,7 @@ public class DishManagerFragment extends Fragment {
 
         // Header
         TableRow headerRow = new TableRow(getContext());
-        String[] headers = {"ID món ăn", "Tên món", "Giá", "Trạng thái", "Hành động"};
+        String[] headers = {"ID món ăn", "Tên món", "Giá", "Trạng thái"};
         for (String header : headers) {
             TextView tv = new TextView(getContext());
             tv.setText(header);
@@ -266,19 +266,19 @@ public class DishManagerFragment extends Fragment {
             row.addView(tvActive);
 
             // Hành động
-            TextView tvAction = new TextView(getContext());
-            tvAction.setText("Xóa | Kích hoạt");
-            tvAction.setTextColor(getResources().getColor(android.R.color.holo_blue_dark));
-            tvAction.setPadding(8, 8, 8, 8);
-            tvAction.setGravity(android.view.Gravity.CENTER);
-            tvAction.setOnClickListener(v -> showActionDialog(dish));
-            row.addView(tvAction);
+//            TextView tvAction = new TextView(getContext());
+//            tvAction.setText("Xóa | Kích hoạt");
+//            tvAction.setTextColor(getResources().getColor(android.R.color.holo_blue_dark));
+//            tvAction.setPadding(8, 8, 8, 8);
+//            tvAction.setGravity(android.view.Gravity.CENTER);
+//////            tvAction.setOnClickListener(v -> showActionDialog(dish));
+//            row.addView(tvAction);
 
             tblDishes.addView(row);
         }
     }
 
-    private void showAddDishDialog() {
+        private void showAddDishDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.dialog_add_dish, null);
         builder.setView(dialogView);
@@ -319,7 +319,8 @@ public class DishManagerFragment extends Fragment {
                 dish.setPrice(price);
                 dish.setImage(image.isEmpty() ? null : image);
                 dish.setActive("ACTIVE");
-                dish.setTypeDish(typeDishList.get(selectedTypeDishPosition).getId());
+                dish.setTypeDish(typeDishList.get(spinnerAsc.getSelectedItemPosition()).getId());
+//                dish.setTypeDish(typeDishList.get(selectedTypeDishPosition).getId());
 
                 addDish(dish);
                 dialog.dismiss();
@@ -444,19 +445,19 @@ public class DishManagerFragment extends Fragment {
                 });
     }
 
-    private void showActionDialog(Dish dish) {
-        new AlertDialog.Builder(getContext())
-                .setTitle("Hành động")
-                .setItems(new String[]{"Xóa", "Kích hoạt"}, (dialog, which) -> {
-                    if (which == 0) {
-                        confirmDeleteDish(dish);
-                    } else {
-                        activeDish(dish);
-                    }
-                })
-                .setNegativeButton("Hủy", null)
-                .show();
-    }
+//    private void showActionDialog(Dish dish) {
+//        new AlertDialog.Builder(getContext())
+//                .setTitle("Hành động")
+//                .setItems(new String[]{"Xóa", "Kích hoạt"}, (dialog, which) -> {
+//                    if (which == 0) {
+//                        confirmDeleteDish(dish);
+//                    } else {
+//                        activeDish(dish);
+//                    }
+//                })
+//                .setNegativeButton("Hủy", null)
+//                .show();
+//    }
 
     private void confirmDeleteDish(Dish dish) {
         new AlertDialog.Builder(getContext())
