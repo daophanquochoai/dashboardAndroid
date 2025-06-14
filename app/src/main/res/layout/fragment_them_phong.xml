@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.ThemPhongFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thêm phòng"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/btn_color"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            />
+        <TextView
+            android:id="@+id/tv_name_room"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tên phòng"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/main_color"
+            android:layout_marginTop="15dp"
+            />
+        <EditText
+            android:id="@+id/edt_name_room"
+            android:layout_width="match_parent" android:layout_height="40dp"
+            android:hint="Nhập tên phòng"
+            android:textSize="15dp"
+            android:background="@drawable/bg_form"
+            />
+        <TextView
+            android:id="@+id/txt_error_name"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="* loi"
+            android:visibility="gone"
+            android:textStyle="bold"
+            android:textColor="@color/text_error"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trạng thái"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/main_color"
+            android:layout_marginTop="15dp"
+            />
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/spinner_status"
+            android:spinnerMode="dropdown"
+            android:layout_gravity="end"
+            />
+        <GridLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alignmentMode="alignMargins"
+            android:columnCount="20"
+            android:rowCount="14"
+            android:layout_marginTop="16dp"
+            android:useDefaultMargins="true" />
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:scrollbars="horizontal">
+
+            <LinearLayout
+                android:id="@+id/layoutChairContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </HorizontalScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            >
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_gravity="start"
+                android:layout_marginRight="10dp"
+                android:background="@color/main_color"
+                android:textColor="@color/white"
+                android:text="Hủy"
+
+                />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:layout_marginLeft="10dp"
+                android:background="@color/btn_color"
+                android:textColor="@color/white"
+                android:text="Tạo"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
