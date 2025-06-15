@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/tv_chair_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mã ghế: "
+        android:paddingBottom="4dp"/>
+
+    <TextView
+        android:id="@+id/tv_chair_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Giá: "
+        android:paddingBottom="4dp"/>
+
+    <TextView
+        android:id="@+id/tv_ticket_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tên vé: "
+        android:paddingBottom="4dp"/>
+
+    <TextView
+        android:id="@+id/tv_ticket_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Loại vé: "/>
+</LinearLayout>
