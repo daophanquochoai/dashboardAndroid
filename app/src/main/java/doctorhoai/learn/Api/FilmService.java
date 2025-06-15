@@ -23,7 +23,7 @@ public interface FilmService {
             .build();
     Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").setLenient().create();
     FilmService apiService  = new Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:6380/doctorhoai/proxy/")
+            .baseUrl("http://192.168.1.22:6380/doctorhoai/proxy/")
             .client(okHttpClient)
             .addConverterFactory(ScalarsConverterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))
