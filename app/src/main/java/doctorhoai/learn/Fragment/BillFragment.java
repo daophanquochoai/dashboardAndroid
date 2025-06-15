@@ -29,6 +29,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -164,6 +165,9 @@ public class BillFragment extends Fragment {
             billTable.removeViews(1, childCount - 1);
         }
 
+        // Định dạng giá tiền
+        DecimalFormat decimalFormat = new DecimalFormat("#,###");
+
         for (Bill bill : bills) {
             TableRow row = new TableRow(getContext());
             row.setBackgroundResource(R.drawable.bg_border_bottom);
@@ -198,7 +202,7 @@ public class BillFragment extends Fragment {
             TextView tvTotalPrice = new TextView(getContext());
             tvTotalPrice.setGravity(1);
             tvTotalPrice.setTextSize(14);
-            tvTotalPrice.setText(bill.getTotalPrice() != null ? String.format("%.2f", bill.getTotalPrice()) : "0.00");
+            tvTotalPrice.setText(bill.getTotalPrice() != null ? decimalFormat.format(bill.getTotalPrice()) + " VND" : "0 VND");
             tvTotalPrice.setPadding(8, 8, 8, 8);
             tvTotalPrice.setLayoutParams(new TableRow.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
             row.addView(tvTotalPrice);
