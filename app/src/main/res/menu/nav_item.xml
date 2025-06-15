@@ -22,6 +22,11 @@
                 android:title="Phim"
         />
         <item
+                android:id="@+id/branch"
+                android:icon="@drawable/ic_branch"
+                android:title="Rạp chiếu"
+            />
+        <item
                 android:id="@+id/typefilm"
                 android:icon="@drawable/ic_type_film"
                 android:title="Loại phim"
