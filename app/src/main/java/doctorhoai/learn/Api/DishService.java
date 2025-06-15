@@ -25,7 +25,7 @@ public interface DishService {
     Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").setLenient().create();
 
     DishService apiService = new Retrofit.Builder()
-            .baseUrl("http://192.168.1.22:6380/doctorhoai/proxy/")
+            .baseUrl("http://10.0.2.2:6380/doctorhoai/proxy/")
             .client(okHttpClient)
             .addConverterFactory(ScalarsConverterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))
