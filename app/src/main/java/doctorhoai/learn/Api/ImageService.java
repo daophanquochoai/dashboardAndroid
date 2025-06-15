@@ -23,7 +23,7 @@ public interface ImageService {
             .build();
     Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").setLenient().create();
     ImageService apiService  = new Retrofit.Builder()
-            .baseUrl("http://192.168.1.22:8080/")
+            .baseUrl("http://10.0.2.2:8080/")
             .client(okHttpClient)
             .addConverterFactory(ScalarsConverterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))
