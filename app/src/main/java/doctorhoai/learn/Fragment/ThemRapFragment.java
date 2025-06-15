@@ -39,14 +39,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 
 public class ThemRapFragment extends Fragment {
-    private TextView tv_title, tv_err_name, tv_id;
+    private TextView tv_title, tv_err_name, tv_id, tv_err_address;
     private EditText edt_id, edt_name, edt_address;
     private ShareData shareData;
     private String token;
     private LoadingDialog loadingDialog;
     private ObjectMapper mapper = new ObjectMapper();
     private Spinner spinnerStatus;
-    private Button btnCancel, btnSave;
+    private Button btnCancel, btnSave, btnRoom;
     private static final int PICK_IMAGE_REQUEST = 1;
     private Branch branch = new Branch("","","", "ACTIVE");
 
@@ -64,16 +64,31 @@ public class ThemRapFragment extends Fragment {
                 btnSave.setText("Thêm");
                 tv_id.setVisibility(View.GONE);
                 edt_id.setVisibility(View.GONE);
+                btnRoom.setVisibility(View.GONE);
                 functionAdd();
             }else{
                 tv_title.setText("Cập nhật rạp");
                 btnSave.setText("Cập nhật");
+                btnRoom.setVisibility(View.VISIBLE);
+
                 Branch branch1 = (Branch) bundle.getSerializable("data");
                 edt_id.setText(branch1.getId());
                 edt_id.setEnabled(false);
                 edt_name.setText(branch1.getNameBranch());
                 edt_address.setText(branch1.getAddress());
                 spinnerStatus.setSelection(branch1.getStatus().toString().equals("ACTIVE") ? 0 : 1);
+                btnRoom.setOnClickListener(v -> {
+                    RoomFragment roomFragment = new RoomFragment();
+                    Bundle bundleRoom = new Bundle();
+                    bundleRoom.putString("branchId", branch1.getId());
+                    roomFragment.setArguments(bundleRoom);
+
+                    requireActivity().getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.frame_container, roomFragment)
+                            .addToBackStack(null)
+                            .commit();
+                });
                 functionUpdate();
             }
         }else{
@@ -105,17 +120,7 @@ public class ThemRapFragment extends Fragment {
     }
 
     public void initView ( View view ) {
-//        shareData = ShareData.getInstance(getContext());
-//        token = shareData.getToken();
-//        loadingDialog = new LoadingDialog(getActivity());
-//        tv_title = view.findViewById(R.id.tvTitle);
-//        edt_name = view.findViewById(R.id.edt_name_branch);
-//        edt_id = view.findViewById(R.id.edt_id);
-//        spinnerStatus = view.findViewById(R.id.spinner_status);
-//        btnCancel = view.findViewById(R.id.btn_cancel);
-//        btnSave = view.findViewById(R.id.btn_save);
-//
-//        tv_err_name = view.findViewById(R.id.txt_error_name);
+
         shareData = ShareData.getInstance(getActivity());
         token = shareData.getToken();
         edt_id = view.findViewById(R.id.edt_id);
@@ -133,66 +138,75 @@ public class ThemRapFragment extends Fragment {
         tv_title = view.findViewById(R.id.tvTitle);
         btnSave = view.findViewById(R.id.btn_save);
         btnCancel = view.findViewById(R.id.btn_cancel);
+        btnRoom = view.findViewById(R.id.btn_room);
         tv_id = view.findViewById(R.id.tvId);
         loadingDialog = new LoadingDialog(getActivity());
         tv_err_name = view.findViewById(R.id.txt_error_name);
-    }
-
-    public void resetForm () {
-        tv_err_name.setText("");
-        tv_err_name.setVisibility(View.GONE);
+        tv_err_address = view.findViewById(R.id.txt_error_address);
     }
 
     public void functionAdd(){
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadingDialog.startLoadingDialog();
-                branch.setNameBranch(edt_name.getText().toString());
                 branch.setAddress(edt_address.getText().toString());
-                if( edt_name.getText().toString().equals("")){
+                branch.setNameBranch(edt_name.getText().toString());
+                boolean hasError = false;
+
+                tv_err_name.setVisibility(View.GONE);
+                tv_err_address.setVisibility(View.GONE);
+
+                if (edt_name.getText().toString().equals("")) {
                     tv_err_name.setVisibility(View.VISIBLE);
                     tv_err_name.setText("Tên rạp không thể trống");
-                }else{
-                    BranchService.apiService.addBranch("Bearer " + token, branch).enqueue(new Callback<Response>() {
-                        @Override
-                        public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
-                            if( response.isSuccessful()){
-                                loadingDialog.dismissDialog();
-                                Toast.makeText(getActivity(), "Thêm rạp thành công", Toast.LENGTH_SHORT).show();
-                                Objects.requireNonNull(getActivity()).getSupportFragmentManager().popBackStack();
-                            }else   if( response.code() == 401 ){
-                                Toast.makeText(getActivity(), "Hết phiên làm việc", Toast.LENGTH_SHORT).show();
-                                shareData.clearToken();
-                                Intent intent = new Intent(getActivity(), LoginActivity.class);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                startActivity(intent);
-                            }else if ( response.code() == 400){
-                                String errorJson = null;
-                                try {
-                                    errorJson = response.errorBody().string();
-                                } catch (IOException e) {
-                                    throw new RuntimeException(e);
-                                }
-                                Gson gson = new Gson();
-                                ErrorResponse errorResponse = gson.fromJson(errorJson, ErrorResponse.class);
-                                Toast.makeText(getActivity(), errorResponse.getMessage(), Toast.LENGTH_SHORT).show();
-                                loadingDialog.dismissDialog();
+                    hasError = true;
+                }
+                if (edt_address.getText().toString().equals("")) {
+                    tv_err_address.setVisibility(View.VISIBLE);
+                    tv_err_address.setText("Địa chỉ không thể trống");
+                    hasError = true;
+                }
+                if (hasError) {
+                    return;
+                }
+                loadingDialog.startLoadingDialog();
+                BranchService.apiService.addBranch("Bearer " + token, branch).enqueue(new Callback<Response>() {
+                    @Override
+                    public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+                        if( response.isSuccessful()){
+                            loadingDialog.dismissDialog();
+                            Toast.makeText(getActivity(), "Thêm rạp thành công", Toast.LENGTH_SHORT).show();
+                            Objects.requireNonNull(getActivity()).getSupportFragmentManager().popBackStack();
+                        }else   if( response.code() == 401 ){
+                            Toast.makeText(getActivity(), "Hết phiên làm việc", Toast.LENGTH_SHORT).show();
+                            shareData.clearToken();
+                            Intent intent = new Intent(getActivity(), LoginActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                        }else if ( response.code() == 400){
+                            String errorJson = null;
+                            try {
+                                errorJson = response.errorBody().string();
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
                             }
-                            else{
-                                Toast.makeText(getActivity(), "Hệ thống lỗi", Toast.LENGTH_SHORT).show();
-                                loadingDialog.dismissDialog();
-                            }
+                            Gson gson = new Gson();
+                            ErrorResponse errorResponse = gson.fromJson(errorJson, ErrorResponse.class);
+                            Toast.makeText(getActivity(), errorResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                            loadingDialog.dismissDialog();
                         }
-
-                        @Override
-                        public void onFailure(Call<Response> call, Throwable throwable) {
+                        else{
                             Toast.makeText(getActivity(), "Hệ thống lỗi", Toast.LENGTH_SHORT).show();
                             loadingDialog.dismissDialog();
                         }
-                    });
-                }
+                    }
 
+                    @Override
+                    public void onFailure(Call<Response> call, Throwable throwable) {
+                        Toast.makeText(getActivity(), "Hệ thống lỗi", Toast.LENGTH_SHORT).show();
+                        loadingDialog.dismissDialog();
+                    }
+                });
             }
         });
     }
@@ -201,52 +215,66 @@ public class ThemRapFragment extends Fragment {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadingDialog.startLoadingDialog();
+
                 branch.setNameBranch(edt_name.getText().toString());
                 branch.setAddress(edt_address.getText().toString());
-                if( edt_name.getText().toString().equals("")){
+
+                boolean hasError = false;
+
+                tv_err_name.setVisibility(View.GONE);
+                tv_err_address.setVisibility(View.GONE);
+
+                if (edt_name.getText().toString().equals("")) {
                     tv_err_name.setVisibility(View.VISIBLE);
                     tv_err_name.setText("Tên rạp không thể trống");
-                }else{
-                    BranchService.apiService.updateBranch("Bearer " + token,edt_id.getText().toString(), branch).enqueue(new Callback<Response>() {
-                        @Override
-                        public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
-                            if( response.isSuccessful()){
-                                loadingDialog.dismissDialog();
-                                Toast.makeText(getActivity(), "Cập nhật rạp phim thành công", Toast.LENGTH_SHORT).show();
-                                Objects.requireNonNull(getActivity()).getSupportFragmentManager().popBackStack();
-                            }else   if( response.code() == 401 ){
-                                Toast.makeText(getActivity(), "Hết phiên làm việc", Toast.LENGTH_SHORT).show();
-                                shareData.clearToken();
-                                Intent intent = new Intent(getActivity(), LoginActivity.class);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                startActivity(intent);
-                            }else if ( response.code() == 400){
-                                String errorJson = null;
-                                try {
-                                    errorJson = response.errorBody().string();
-                                } catch (IOException e) {
-                                    throw new RuntimeException(e);
-                                }
-                                Gson gson = new Gson();
-                                ErrorResponse errorResponse = gson.fromJson(errorJson, ErrorResponse.class);
-                                Toast.makeText(getActivity(), errorResponse.getMessage(), Toast.LENGTH_SHORT).show();
-                                loadingDialog.dismissDialog();
+                    hasError = true;
+                }
+                if (edt_address.getText().toString().equals("")) {
+                    tv_err_address.setVisibility(View.VISIBLE);
+                    tv_err_address.setText("Địa chỉ không thể trống");
+                    hasError = true;
+                }
+                if (hasError) {
+                    return;
+                }
+                loadingDialog.startLoadingDialog();
+                BranchService.apiService.updateBranch("Bearer " + token,edt_id.getText().toString(), branch).enqueue(new Callback<Response>() {
+                    @Override
+                    public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+                        if( response.isSuccessful()){
+                            loadingDialog.dismissDialog();
+                            Toast.makeText(getActivity(), "Cập nhật rạp phim thành công", Toast.LENGTH_SHORT).show();
+                            Objects.requireNonNull(getActivity()).getSupportFragmentManager().popBackStack();
+                        }else   if( response.code() == 401 ){
+                            Toast.makeText(getActivity(), "Hết phiên làm việc", Toast.LENGTH_SHORT).show();
+                            shareData.clearToken();
+                            Intent intent = new Intent(getActivity(), LoginActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                        }else if ( response.code() == 400){
+                            String errorJson = null;
+                            try {
+                                errorJson = response.errorBody().string();
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
                             }
-                            else{
-                                Toast.makeText(getActivity(), "Hệ thống lỗi", Toast.LENGTH_SHORT).show();
-                                loadingDialog.dismissDialog();
-                            }
+                            Gson gson = new Gson();
+                            ErrorResponse errorResponse = gson.fromJson(errorJson, ErrorResponse.class);
+                            Toast.makeText(getActivity(), errorResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                            loadingDialog.dismissDialog();
                         }
-
-                        @Override
-                        public void onFailure(Call<Response> call, Throwable throwable) {
+                        else{
                             Toast.makeText(getActivity(), "Hệ thống lỗi", Toast.LENGTH_SHORT).show();
                             loadingDialog.dismissDialog();
                         }
-                    });
-                }
+                    }
 
+                    @Override
+                    public void onFailure(Call<Response> call, Throwable throwable) {
+                        Toast.makeText(getActivity(), "Hệ thống lỗi", Toast.LENGTH_SHORT).show();
+                        loadingDialog.dismissDialog();
+                    }
+                });
             }
         });
     }
