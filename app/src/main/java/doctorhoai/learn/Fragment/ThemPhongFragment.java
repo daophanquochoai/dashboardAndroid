@@ -352,12 +352,11 @@ public class ThemPhongFragment extends Fragment {
                     if (currentType == 0) {
                         positionChair.get(finalRow).set(finalCol, 1);
                     } else if (currentType == 1) {
-                        if (finalCol < positionChair.get(finalRow).size() - 1 &&
-                                positionChair.get(finalRow).get(finalCol + 1) == 0 &&
-                                (finalCol == 0 || positionChair.get(finalRow).get(finalCol - 1) != 2)) {
-
-                            positionChair.get(finalRow).set(finalCol, 2);
-                            positionChair.get(finalRow).set(finalCol + 1, -1);
+                        if (finalCol + 1 < row.size() && row.get(finalCol + 1) == 0) {
+                            row.set(finalCol, 2);
+                            row.set(finalCol + 1, -1);
+                        } else {
+                            row.set(finalCol, 0);
                         }
                     } else if (currentType == 2) {
                         positionChair.get(finalRow).set(finalCol, 0);
